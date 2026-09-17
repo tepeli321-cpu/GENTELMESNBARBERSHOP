@@ -63,7 +63,7 @@ async function handleLogin(e){
   try{
     const response = await fetch(SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ action: 'login', password: val })
     });
     const result = await readJsonResponse(response);
@@ -258,7 +258,7 @@ async function deleteAppointment(id){
     const token = sessionStorage.getItem('adminTokenV2');
     const response = await fetch(SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ action: 'delete', id, token })
     });
     if(!response.ok) throw new Error('Silme başarısız');
